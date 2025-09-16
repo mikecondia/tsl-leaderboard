@@ -1,0 +1,339 @@
+*{
+    background-color:#013123;
+    color:white; 
+    font-family:"Crimson+Pro";
+}
+.logo-container{
+      display: flex;
+   justify-content: center; 
+  align-items: center; 
+}
+#tsl-logo{
+     display: flex;
+   justify-content: center; 
+  align-items: center; 
+    width:10rem;
+    height:10rem; 
+    
+    
+}
+input, select{
+    background-color:#32703b;
+    color:white;
+    font-family: 'Crimson Pro';
+    font-weight: 400;
+    font-size: 2rem;
+    width: 17rem;
+    height: 3rem;
+    text-align: center;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+}
+
+#enter-name, #class-number, select{
+    margin-left:2rem; 
+
+}
+#seperation-line{
+    width:100%;
+    height:.3rem;
+    background-color: white;
+    opacity: .7;
+    margin: auto;
+    margin-top:1rem;
+    margin-bottom:2rem;
+    border-radius: 10px;
+}
+#append-button{
+        /* display: flex;
+   justify-content: center; 
+  align-items: center;  */
+  margin-top:1.5rem;
+  margin-left:6rem; 
+      background-color:#047014;
+    color:white;
+    font-family: 'Crimson Pro';
+    font-weight: 400;
+    font-size: 2rem;
+    width: 10rem;
+    height: 3rem;
+    text-align: center;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    grid-area: e;
+}
+#append-button:hover{
+    background-color:#0d281c;
+}
+::placeholder{
+    color:white;
+}
+form{
+     /* display: flex;
+   justify-content: center; 
+  align-items: center;  */
+  display:grid;
+  grid-template-areas: 
+  "a b c"
+  "d d d"
+  ". e .";
+
+}
+#checkbox-container{
+    margin:1rem;
+    margin-top:2rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    /* background-color: red; */
+    grid-area:d;
+}
+#enter-name{
+    grid-area:a; 
+    margin-left:8rem;
+}
+#class-number{
+    grid-area:b; 
+}
+#country-select{
+    grid-area:c; 
+}
+#append-container{
+    display: block;
+}
+ #display-container{
+    font-family: 'Crimson Pro';
+    text-align: center;
+    
+    /* display: flex;
+   justify-content: center; 
+  align-items: center;   */
+ }  
+ .appended-items{ 
+    font-family: 'Crimson Pro';
+    font-weight: 400;
+    /* display:block;  */
+     font-size: 2rem;
+     margin-top: 1rem;
+     word-spacing: 1rem;
+   /* height: 50px;
+   margin: 0 auto; */
+    display: flex;
+    
+   justify-content: center; 
+  align-items: center; 
+ }
+ .appended-badges{ 
+      background-repeat: no-repeat;
+    background-size: 2rem 2rem;
+    object-fit: contain;
+    height: 2rem;
+    width: 2rem;
+    margin-right:.3rem;
+    /* display:inline-block; */
+    /* padding: 0 0 0 0px; */
+    color: rgba(0, 0, 0, 0);
+ display:inline-block;
+ text-align: center;
+ }
+
+input[type=checkbox] {
+    display:none;
+}
+
+
+/* BLACK CHECK MARK WITH TEDDY'S FACE */
+#coin:checked + label,#agons:checked + label,#ancestry:checked + label, #angler:checked + label,#archery:checked + label,#art:checked + label, #astronomer:checked + label, #backyardchef:checked + label,#backyardfarmer:checked+label,#barbell:checked+label,#biography:checked+label,#citizenship:checked+label,#classics:checked+label,#communityservice:checked+label, #craftsman:checked+label,#easyrider:checked+label,#emergency:checked+label, #entreprenuership:checked+label, #fighter:checked+label,#fire:checked+label,#firstaid:checked+label,#frogman:checked+label, #gearhead:checked+label, #scholar:checked+label, #hacker:checked+label, #handyman:checked+label, #host:checked+label,#hunting:checked+label,#infosec:checked+label, #journaling:checked+label,#kissthechef:checked+label, #knot:checked+label, #letter:checked+label,#lock:checked+label,#lumberjack:checked+label,#microadventure:checked+label,#monk:checked+label,#ranger:checked+label,#music:checked+label,#orator:checked+label,#outdoorsman:checked+label,#family:checked+label,#penmanship:checked+label,#finance:checked+label,#polyglot:checked+label, #roughrider:checked+label,#rucking:checked + label, #sales:checked+label, #sartorialist:checked+label,#scout:checked+label,#sharpshooter:checked+label, #shaving:checked+label, #sheepdog:checked+label,#social:checked+label,#tracker:checked+label,#virtue:checked+label, #wilderness:checked+label {
+    /* background-image: url('images/tsl_badges/black_dot.png'); */
+    opacity:0.35;
+    background-repeat: no-repeat;
+    background-size: 3rem 3rem;
+    height: 3rem;
+    width: 3rem;
+    margin: .5rem;
+    object-fit:contain;
+    display:inline-block;
+    padding: 0 0 0 0px;
+}
+
+.badge-style{
+     background-repeat: no-repeat;
+    background-size: 3rem 3rem;
+    object-fit: contain;
+    height: 3rem;
+    width: 3rem;
+    margin:.5rem;
+    display:inline-block;
+}
+#coin + label {
+    background-image: url('images/tsl_badges/coin-100x100.png');
+}
+#ancestry + label {
+    background-image: url('images/tsl_badges/ancestry.png');
+}
+#angler + label {
+    background-image: url('images/tsl_badges/Angler-Badge.png');
+}
+#archery + label {
+    background-image: url('images/tsl_badges/Archery-Badge.png');
+}
+#art + label {
+    background-image: url('images/tsl_badges/Artist-Badge.png');
+}
+#astronomer + label {
+    background-image: url('images/tsl_badges/Astronomer-Badge.png');
+}
+#backyardchef + label {
+    background-image: url('images/tsl_badges/Backyard-Chef-Badge.png');
+}
+#backyardfarmer + label {
+    background-image: url('images/tsl_badges/Backyard-Farmer-Badge.png');
+}
+#barbell + label {
+    background-image: url('images/tsl_badges/Barbell-Badge.png');
+}
+#biography + label {
+    background-image: url('images/tsl_badges/Biography-Badge-1.png');
+}
+#citizenship + label{
+    background-image:url("images/tsl_badges/Citizenship-Badge.png")
+}
+#classics + label{
+    background-image: url("images/tsl_badges/Classics-Badge.png");
+}
+#communityservice + label{
+    background-image:url("images/tsl_badges/Community-Service-Badge.png")
+}
+#craftsman + label{
+    background-image:url("images/tsl_badges/Craftsman-Badge.png")
+}
+#easyrider + label{
+    background-image:url("images/tsl_badges/Easyrider-Badge.png")
+}
+#emergency + label{
+    background-image:url("images/tsl_badges/Emergency-Prepping-Badge.png")
+}
+#entreprenuership + label{
+    background-image:url("images/tsl_badges/Entrepreneurship-Badge.png")
+}
+#fighter + label{
+    background-image: url("images/tsl_badges/Fighter-Badge.png");
+}
+#fire + label{
+    background-image:url("images/tsl_badges/Firebuilding-Badge.png")
+}
+#firstaid + label{
+    background-image:url("images/tsl_badges/First-Aid-Badge.png")
+}
+#frogman + label{
+    background-image:url("images/tsl_badges/Frogman-Badge.png")
+}
+#gearhead  + label{
+    background-image:url("images/tsl_badges/Automotive-Maintenance-Badge.png")
+}
+#scholar  + label{
+    background-image:url("images/tsl_badges/Gentleman-Scholar-Badge.png")
+}
+#hacker + label{
+    background-image:url("images/tsl_badges/Hacker-Badge.png")
+}
+#handyman + label{
+    background-image:url("images/tsl_badges/Handyman-Badge.png")
+}
+#host + label{
+    background-image:url("images/tsl_badges/Host-Badge.png")
+}
+#hunting + label{
+    background-image:url("images/tsl_badges/Hunter-Badge.png")
+}
+#infosec + label{
+    background-image:url("images/tsl_badges/Infosecurity-Badge.png")
+}
+#journaling + label{
+    background-image:url("images/tsl_badges/Journaling-Badge.png")
+}
+#kissthechef + label{
+    background-image:url("images/tsl_badges/Kiss-the-Chef-Badge.png")
+}
+#knot + label{
+    background-image:url("images/tsl_badges/Knotmanship-Badge-1.png")
+}
+#letter + label{
+    background-image:url("images/tsl_badges/Letter-Writing-Badge.png")
+}
+#lock + label{
+    background-image:url("images/tsl_badges/Lock-Picking-Badge.png")
+}
+#lumberjack + label{
+    background-image:url("images/tsl_badges/Lumberjack-Badge.png")
+}
+#microadventure + label{
+    background-image:url("images/tsl_badges/Microadventure-Badge.png")
+}
+#monk + label{
+    background-image:url("images/tsl_badges/Monk-Badge-Web.png")
+}
+#ranger + label{
+    background-image:url("images/tsl_badges/Mountain-Ranger-Badge.png")
+}
+#music + label{
+    background-image:url("images/tsl_badges/Musician-Badge.png")
+}
+#orator + label{
+    background-image:url("images/tsl_badges/Orator-Badge.png")
+}
+#outdoorsman + label{
+    background-image:url("images/tsl_badges/All-Around-Outdoorsman-Badge.png")
+}
+#family + label{
+    background-image:url("images/tsl_badges/Paterfamilia-Badge.png")
+}
+#penmanship + label{
+    background-image:url("images/tsl_badges/Penmanship-Badge.png")
+}
+#finance + label{
+    background-image:url("images/tsl_badges/Personal-Finance-Badge.png")
+}
+#polyglot + label{
+    background-image:url("images/tsl_badges/Foreign-Language-Badge-Web.png")
+}
+#roughrider + label{
+    background-image:url("images/tsl_badges/Roughrider-Badge.png")
+}
+#rucking + label{
+    background-image:url("images/tsl_badges/Ruck-Badge.png")
+}
+#sales + label{
+    background-image:url("images/tsl_badges/Salesmanship-Badge.png")
+}
+#sartorialist + label{
+    background-image:url("images/tsl_badges/Sartorialist-Badge.png")
+}
+#scout + label{
+    background-image:url("images/tsl_badges/Scout-Badge.png")
+}
+#sharpshooter + label{
+    background-image:url("images/tsl_badges/Sharpshooter-Badge.png")
+}
+#shaving + label{
+    background-image:url("images/tsl_badges/Shaving-Badge.png")
+}
+#sheepdog + label{
+    background-image:url("images/tsl_badges/Sheepdog-Badge.png")
+}
+#social + label{
+    background-image:url("images/tsl_badges/Social-Dynamo-Badge.png")
+}
+#tracker + label{
+    background-image:url("images/tsl_badges/Tracking-Badge.png")
+}
+#virtue + label{
+    background-image:url("images/tsl_badges/Virtue-Badge.png")
+}
+#wilderness + label{
+    background-image:url("images/tsl_badges/Wilderness-Survival-Badge.png")
+}
+#agons + label {
+    background-image:url("images/tsl_badges/agons.png")
+}

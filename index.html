@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TSL Leaderboard</title>
+    <link
+      rel="icon"
+      type="image/png"
+      href="favicon/favicon-96x96.png"
+      sizes="96x96"
+    />
+    <link rel="icon" type="image/svg+xml" href="favicon/favicon.svg" />
+    <link rel="shortcut icon" href="favicon/favicon.ico" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="favicon/apple-touch-icon.png"
+    />
+    <link rel="manifest" href="favicon/site.webmanifest" />
+    <!-- favicons -->
+    <!-- <link rel="icon" href="favicon_io/favicon.ico" />
+    <link rel="apple-touch-icon" href="favicon_io/apple-touch-icon.png" /> -->
+    <!-- <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
+<link rel="manifest" href="favicon_io/site.webmanifest"> -->
+    <!-- styles -->
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="app.css" />
+  </head>
+  <body>
+    <div class="logo-container">
+    <img src="images/tsl_logo.jpg" id="tsl-logo" alt="the strenuous life logo">
+    </div>
+    <form form action="" method="" id="form-container">
+    <input type="text" name="" id="enter-name" placeholder="Enter Name">
+    <input type="text" name="" id="class-number" placeholder="Enter Class Number">
+       <!-- <label for="country-select">Homeland:</label> -->
+    <select id="country-select" name="country">
+        <option value="">Homeland</option>
+        <option value="🇺🇸">🇺🇸</option>
+        <option value="🇨🇦">🇨🇦</option>
+        <option value="🇬🇧">🇬🇧</option>
+        <option value="🇫🇷">🇫🇷</option>
+        <option value="🇩🇪">🇩🇪</option>
+        <option value="🇮🇪">🇮🇪</option>
+        <option value="🏴󠁧󠁢󠁳󠁣󠁴󠁿">🏴󠁧󠁢󠁳󠁣󠁴󠁿</option>
+        <option value="🇲🇽">🇲🇽</option>
+        <option value="🇸🇪">🇸🇪</option>
+         <option value="🇧🇷">🇧🇷</option>
+         <option value="🇳🇴">🇳🇴</option>
+         <option value="🇷🇺">🇷🇺</option>
+         <option value="🇩🇰">🇩🇰</option>
+         <option value="🇦🇷">🇦🇷</option>
+          <option value="🏴‍☠️">🏴‍☠️</option>
+        <!-- Add more countries and their respective flag emojis here -->
+    </select>
+    <div id="checkbox-container">
+    <input type='checkbox' name='Challenge Coin' value=2 id="coin" /><label class="badge-style"for="coin"></label>
+    <input type='checkbox' name='Ancestry' value=1 id="ancestry"/><label class="badge-style" for="ancestry"></label>
+   <input type='checkbox' name='Angler' value=1 id="angler"/><label class="badge-style"for="angler"></label>
+   <input type='checkbox' name='Archery' value=1 id="archery"class=/><label class="badge-style" for="archery"></label>
+   <input type='checkbox' name='Art' value=1 id="art"/><label class="badge-style" for="art"></label>
+   <input type='checkbox' name='Astronomer' value=1 id="astronomer"/><label class="badge-style" for="astronomer"></label>
+  <input type='checkbox' name='Backyard Chef' value=1 id="backyardchef"/><label class="badge-style" for="backyardchef"></label>
+ <input type='checkbox' name='Backyard Farmer' value=1 id="backyardfarmer"/><label class="badge-style" for="backyardfarmer"></label>
+<input type='checkbox' name='thing' value=1 id="barbell"/><label class="badge-style" for="barbell"></label>
+<input type='checkbox' name='thing' value=1 id="biography"/><label class="badge-style" for="biography"></label>
+<input type='checkbox' name='thing' value=1 id="citizenship"/><label class="badge-style" for="citizenship"></label>
+<input type='checkbox' name='thing' value=1 id="classics"/><label class="badge-style" for="classics"></label>
+<input type='checkbox' name='thing' value=1 id="communityservice"/><label class="badge-style" for="communityservice"></label>
+<input type='checkbox' name='thing' value=1 id="craftsman"/><label class="badge-style" for="craftsman"></label>
+<input type='checkbox' name='thing' value=1 id="easyrider"/><label class="badge-style" for="easyrider"></label>
+<input type='checkbox' name='thing' value=1 id="emergency"/><label class="badge-style" for="emergency"></label>
+<input type='checkbox' name='thing' value=1 id="entreprenuership"/><label class="badge-style" for="entreprenuership"></label>
+<input type='checkbox' name='thing' value=1 id="fighter"/><label class="badge-style" for="fighter"></label>
+<input type='checkbox' name='thing' value=1 id="fire"/><label class="badge-style" for="fire"></label>
+<input type='checkbox' name='thing' value=1 id="firstaid"/><label class="badge-style" for="firstaid"></label>
+<input type='checkbox' name='thing' value=1 id="frogman"/><label class="badge-style" for="frogman"></label>
+<input type='checkbox' name='thing' value=1 id="gearhead"/><label class="badge-style" for="gearhead"></label>
+<input type='checkbox' name='thing' value=1 id="scholar"/><label class="badge-style" for="scholar"></label>
+<input type='checkbox' name='thing' value=1 id="hacker"/><label class="badge-style" for="hacker"></label>
+<input type='checkbox' name='thing' value=1 id="handyman"/><label class="badge-style" for="handyman"></label>
+<input type='checkbox' name='thing' value=1 id="host"/><label class="badge-style" for="host"></label>
+<input type='checkbox' name='thing' value=1 id="hunting"/><label class="badge-style" for="hunting"></label>
+<input type='checkbox' name='thing' value=1 id="infosec"/><label class="badge-style" for="infosec"></label>
+<input type='checkbox' name='thing' value=1 id="journaling"/><label class="badge-style" for="journaling"></label>
+<input type='checkbox' name='thing' value=1 id="kissthechef"/><label class="badge-style" for="kissthechef"></label>
+<input type='checkbox' name='thing' value=1 id="knot"/><label class="badge-style" for="knot"></label>
+<input type='checkbox' name='thing' value=1 id="letter"/><label class="badge-style" for="letter"></label>
+<input type='checkbox' name='thing' value=1 id="lock"/><label class="badge-style" for="lock"></label>
+<input type='checkbox' name='thing' value=1 id="lumberjack"/><label class="badge-style" for="lumberjack"></label>
+<input type='checkbox' name='thing' value=1 id="microadventure"/><label class="badge-style" for="microadventure"></label>
+<input type='checkbox' name='thing' value=1 id="monk"/><label class="badge-style" for="monk"></label>
+<input type='checkbox' name='thing' value=1 id="ranger"/><label class="badge-style" for="ranger"></label>
+<input type='checkbox' name='thing' value=1 id="music"/><label class="badge-style" for="music"></label>
+<input type='checkbox' name='thing' value=1 id="orator"/><label class="badge-style" for="orator"></label>
+<input type='checkbox' name='thing' value=1 id="outdoorsman"/><label class="badge-style" for="outdoorsman"></label>
+<input type='checkbox' name='thing' value=1 id="family"/><label class="badge-style" for="family"></label>
+<input type='checkbox' name='thing' value=1 id="penmanship"/><label class="badge-style" for="penmanship"></label>
+<input type='checkbox' name='thing' value=1 id="finance"/><label class="badge-style" for="finance"></label>
+<input type='checkbox' name='thing' value=1 id="polyglot"/><label class="badge-style" for="polyglot"></label>
+<input type='checkbox' name='thing' value=1 id="roughrider"/><label class="badge-style" for="roughrider"></label>
+<input type='checkbox' name='thing' value=1 id="rucking"/><label class="badge-style" for="rucking"></label>
+<input type='checkbox' name='thing' value=1 id="sales"/><label class="badge-style" for="sales"></label>
+<input type='checkbox' name='thing' value=1 id="sartorialist"/><label class="badge-style" for="sartorialist"></label>
+<input type='checkbox' name='thing' value=1 id="scout"/><label class="badge-style" for="scout"></label>
+<input type='checkbox' name='thing' value=1 id="sharpshooter"/><label class="badge-style" for="sharpshooter"></label>
+<input type='checkbox' name='thing' value=1 id="shaving"/><label class="badge-style" for="shaving"></label>
+<input type='checkbox' name='thing' value=1 id="sheepdog"/><label class="badge-style" for="sheepdog"></label>
+<input type='checkbox' name='thing' value=1 id="social"/><label class="badge-style" for="social"></label>
+<input type='checkbox' name='thing' value=1 id="tracker"/><label class="badge-style" for="tracker"></label>
+<input type='checkbox' name='thing' value=1 id="virtue"/><label class="badge-style" for="virtue"></label>
+<input type='checkbox' name='thing' value=1 id="wilderness"/><label class="badge-style" for="wilderness"></label>
+<input type='checkbox' name='thing' value=2 id="agons"/><label class="badge-style" for="agons"></label>
+
+ 
+</div>
+    <button  id="append-button">Submit</button>
+    </form>
+    <div id="seperation-line">
+
+    </div>
+  
+  <div id="append-container">
+   <section id="display-container">
+    <!-- <div class="appended-name appended-number"> -->
+      
+    
+
+   <!-- members will append here -->
+   </section>
+   <!-- <section id="badge-container">
+    
+
+   </section> -->
+  </div>
+  <!-- </div> -->
+   
+    <script src="app.js"></script>
+  </body>
+</html>
