@@ -1,3 +1,4 @@
+![alt text](images/tsl_logo_circle.png)
 # The Strenuous Life Leaderboard 
 
 [The Strenuous Life](https://strenuouslife.co) is an online platform where members complete challenges to earn physical badges. 
