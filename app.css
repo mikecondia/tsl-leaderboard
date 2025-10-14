@@ -110,6 +110,12 @@ form{
    justify-content: center; 
   align-items: center;   */
  }  
+#display-container.odd{
+  background-color: red; /* Light gray for odd items */
+}
+/* #display-container:nth-child(even){
+  background-color: blue; /* Light gray for odd items */
+/* } */ 
  @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -136,14 +142,14 @@ form{
     opacity: 0; /* Start invisible */
   animation: fadeInUp 1s ease-out forwards; /* Adjust duration and easing as needed */
  }
-@keyframes fadeIn {
+/* @keyframes fadeIn {
   from {
     opacity: 0;
   }
   to {
     opacity: 1;
   }
-}
+} */
  .appended-badges{ 
       background-repeat: no-repeat;
     background-size: 2rem 2rem;
@@ -157,11 +163,11 @@ form{
  display:inline-block;
  text-align: center;
   opacity: 0; /* Start invisible */
-  animation: fadeIn 1s forwards; /* Apply the fadeIn animation */
+  animation: fadeInUp 3s ease-out forwards; /* Apply the fadeIn animation */
 }
 
 /* Apply animation delays to each item */
-.appended-badges:nth-child(1) {
+/* .appended-badges:nth-child(1) {
   animation-delay: .6s; 
 }
 .appended-badges:nth-child(2) {
@@ -334,7 +340,7 @@ form{
 }
 .appended-badges:nth-child(58) {
   animation-delay: 12s; 
-}
+} */
 
 
 
