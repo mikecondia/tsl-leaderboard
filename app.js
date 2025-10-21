@@ -5,10 +5,24 @@ const flagInput = document.querySelector('#country-select');
 const displayArea = document.querySelector('#display-container');
 const badgeContainer = document.querySelector('#badge-container')
 const form = document.querySelector('#form-container');
+// MEMBER DATA
+const tslMembers =[];//Array Holding user data
  
 
 form.addEventListener('submit',function(e){
     e.preventDefault();
+
+    const form = e.target 
+    const tslMemberdata = {
+      name: form.name.value,
+      classNumber: form.number.value,
+      country:form.country.value,
+      badges:form.thing.value
+   }
+   tslMembers.push(tslMemberdata);//push data into array
+
+   console.log(tslMemberdata)
+
    
     const nameInputValue = nameInput.value; 
     const nameDiv = document.createElement('p');
@@ -222,5 +236,8 @@ form.addEventListener('submit',function(e){
    //       displayArea.appendChild(newParagraph);
          document.querySelector('#form-container').reset()
 });
+
+
+
 
 
