@@ -13,11 +13,15 @@ form.addEventListener('submit',function(e){
     e.preventDefault();
 
     const form = e.target 
+    const checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
+    checkboxes.forEach(checkbox=> {
+      tslMembers.push(checkbox.checked)
+    }); 
     const tslMemberdata = {
       name: form.name.value,
       classNumber: form.number.value,
       country:form.country.value,
-      badges:form.thing.value
+      badges: checkboxes, 
    }
    tslMembers.push(tslMemberdata);//push data into array
 
