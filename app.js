@@ -7,8 +7,8 @@ const badgeContainer = document.querySelector('#badge-container')
 const form = document.querySelector('#form-container');
 // MEMBER DATA
 const tslMembers =[];//Array Holding user data
- 
-
+ const formArray =[]
+//FORM
 form.addEventListener('submit',function(e){
     e.preventDefault();
 
@@ -23,9 +23,11 @@ form.addEventListener('submit',function(e){
       country:form.country.value,
       badges: checkboxes, 
    }
-   tslMembers.push(tslMemberdata);//push data into array
+    tslMembers.push(tslMemberdata);//push data into array
+console.log(tslMemberdata);
 
-   console.log(tslMemberdata)
+
+
 
    
     const nameInputValue = nameInput.value; 
