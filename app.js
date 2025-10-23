@@ -6,8 +6,9 @@ const displayArea = document.querySelector('#display-container');
 const badgeContainer = document.querySelector('#badge-container')
 const form = document.querySelector('#form-container');
 // MEMBER DATA
-const tslMembers =[];//Array Holding user data
- const formArray =[]
+let formSubmissions =[];//Array Holding user data
+
+
 //FORM
 form.addEventListener('submit',function(e){
     e.preventDefault();
@@ -15,7 +16,7 @@ form.addEventListener('submit',function(e){
     const form = e.target 
     const checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
     checkboxes.forEach(checkbox=> {
-      tslMembers.push(checkbox.checked)
+      formSubmissions.push(checkbox.checked)
     }); 
     const tslMemberdata = {
       name: form.name.value,
@@ -23,14 +24,11 @@ form.addEventListener('submit',function(e){
       country:form.country.value,
       badges: checkboxes, 
    }
-    tslMembers.push(tslMemberdata);//push data into array
-console.log(tslMemberdata);
+   formSubmissions.push(tslMemberdata);//push data into array
+   console.log(tslMemberdata)
 
 
-
-
-   
-    const nameInputValue = nameInput.value; 
+ const nameInputValue = nameInput.value; 
     const nameDiv = document.createElement('p');
     nameDiv.textContent = nameInputValue;  
 
@@ -232,14 +230,11 @@ console.log(tslMemberdata);
                if (listItem.textContent === "agons"){
                 listItem.style.backgroundImage = 'url("images/tsl_badges/agons.png")';
              }
+
+
        displayArea.appendChild(listItem); 
 });
 
-   //  const newParagraph = document.createElement('div');
-   //  const combinedText = nameInputValue.toUpperCase() + ' ' + noZero + ' ' + flagInputValue;
-   //      newParagraph.textContent = combinedText;
-   //      newParagraph.classList.add('appended-items')
-   //       displayArea.appendChild(newParagraph);
          document.querySelector('#form-container').reset()
 });
 
