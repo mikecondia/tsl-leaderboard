@@ -14,7 +14,7 @@ form.addEventListener('submit',function(e){
     e.preventDefault();
 
     const form = e.target 
-    const checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
+    const checkboxes = document.querySelectorAll('input[name="thing"]:checked');
     checkboxes.forEach(checkbox=> {
       formSubmissions.push(checkbox.checked)
     }); 
@@ -22,7 +22,7 @@ form.addEventListener('submit',function(e){
       name: form.name.value,
       classNumber: form.number.value,
       country:form.country.value,
-      badges: checkboxes, 
+      badges: checkboxes
    }
    formSubmissions.push(tslMemberdata);//push data into array
    console.log(tslMemberdata)
