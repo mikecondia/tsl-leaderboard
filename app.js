@@ -6,15 +6,33 @@ const displayArea = document.querySelector('#display-container');
 const badgeContainer = document.querySelector('#badge-container')
 const form = document.querySelector('#form-container');
 // MEMBER DATA
-let formSubmissions =[];//Array Holding user data
+const formSubmissions =[];//Array Holding user data
+//SORTING FUNCTION
+// function sortByMostValues(arr, key) {
+//   return arr.sort((a, b) => {
+//     const aCount = Array.isArray(a[key]) ? a[key].length : 0;
+//     const bCount = Array.isArray(b[key]) ? b[key].length : 0;
+//     return bCount - aCount; // most to least
+//   });
+// }
+// // //  Example:
 
+// const sortedUsers = sortByMostValues(formSubmissions, 'badges');
+// console.log(sortedUsers);
+// Output:
+
+// [
+//   { name: 'Charlie', hobbies: ['cycling', 'hiking', 'traveling', 'cooking'] },
+//   { name: 'Alice', hobbies: ['reading', 'running', 'music'] },
+//   { name: 'Bob', hobbies: ['gaming'] }
+// ]
 
 //FORM
 form.addEventListener('submit',function(e){
     e.preventDefault();
 
     const form = e.target 
-    const checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
+    const checkboxes = document.querySelectorAll('input[name="thing"]:checked');
     checkboxes.forEach(checkbox=> {
       formSubmissions.push(checkbox.checked)
     }); 
@@ -25,7 +43,18 @@ form.addEventListener('submit',function(e){
       badges: checkboxes, 
    }
    formSubmissions.push(tslMemberdata);//push data into array
-   console.log(tslMemberdata)
+   // console.log(tslMemberdata)
+   function sortByMostValues(arr, key) {
+  return arr.sort((a, b) => {
+    const aCount = Array.isArray(a[key]) ? a[key].length : 0;
+    const bCount = Array.isArray(b[key]) ? b[key].length : 0;
+    return bCount - aCount; // most to least
+  });
+}
+// //  Example:
+
+const sortedUsers = sortByMostValues(formSubmissions, 'badges');
+console.log(sortedUsers);
 
 
  const nameInputValue = nameInput.value; 
@@ -242,3 +271,54 @@ form.addEventListener('submit',function(e){
 
 
 
+// Let’s say your HTML looks like this:
+
+// <form id="userForm">
+//   <input type="text" id="name" placeholder="Name" required />
+//   <input type="text" id="hobbies" placeholder="Comma-separated hobbies" required />
+//   <button type="submit">Add User</button>
+// </form>
+
+// <ul id="userList"></ul>
+// 💻 JavaScript
+
+// const users = [];
+
+// const form = document.getElementById('userForm');
+// const list = document.getElementById('userList');
+
+// function renderUsers() {
+//   // Sort by number of hobbies
+//   const sorted = sortByMostValues(users, 'hobbies');
+
+//   // Clear and re-render
+//   list.innerHTML = '';
+//   sorted.forEach(user => {
+//     const li = document.createElement('li');
+//     li.textContent = `${user.name} (${user.hobbies.length} hobbies)`;
+//     list.appendChild(li);
+//   });
+// }
+
+// form.addEventListener('submit', e => {
+//   e.preventDefault();
+
+//   const name = document.getElementById('name').value.trim();
+//   const hobbiesInput = document.getElementById('hobbies').value.trim();
+
+//   if (name && hobbiesInput) {
+//     const hobbies = hobbiesInput.split(',').map(h => h.trim()).filter(Boolean);
+//     users.push({ name, hobbies });
+//     renderUsers();
+//     form.reset();
+//   }
+// });
+
+// // Utility sort function
+// function sortByMostValues(arr, key) {
+//   return arr.sort((a, b) => {
+//     const aCount = Array.isArray(a[key]) ? a[key].length : 0;
+//     const bCount = Array.isArray(b[key]) ? b[key].length : 0;
+//     return bCount - aCount;
+//   });
+// }
