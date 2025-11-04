@@ -3,9 +3,9 @@ const classInput = document.querySelector('#class-number');
 const flagInput = document.querySelector('#country-select');
 
 const displayArea = document.querySelector('#display-container');
-const badgeContainer = document.querySelector('#badge-container')
+const badgeContainer = document.querySelector('#badge-container');
 const form= document.querySelector('#form-container');
-const overlay = document.getElementById('alertOverlay');
+
  
 // MEMBER DATA
 const formSubmissions =[];//Array Holding user data
@@ -37,20 +37,9 @@ form.addEventListener('submit',function(e){
    //      showAlert();
    //    }
    //  });
-
-    function showAlert() {
-      overlay.style.display = 'flex';
-
-      // Automatically hide after 5 seconds
-      setTimeout(() => {
-        overlay.classList.add('fade-out');
-        setTimeout(() => {
-          overlay.style.display = 'none';
-          overlay.classList.remove('fade-out');
-        }, 500); // match fade-out animation time
-      }, 5000);
-    }
-
+  
+  
+   
    
 
     const form = e.target 
