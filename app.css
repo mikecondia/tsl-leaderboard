@@ -68,10 +68,8 @@ input, select{
 ::placeholder{
     color:white;
 }
+
 form{
-     /* display: flex;
-   justify-content: center; 
-  align-items: center;  */
   display:grid;
   grid-template-areas: 
   "a b c"
@@ -86,7 +84,6 @@ form{
     flex-direction: row;
     justify-content: center;
     flex-wrap: wrap;
-    /* background-color: red; */
     grid-area:d;
 }
 #enter-name{
@@ -105,17 +102,10 @@ form{
  #display-container{
     font-family: 'Crimson Pro';
     text-align: center;
-    
-    /* display: flex;
-   justify-content: center; 
-  align-items: center;   */
  }  
 #display-container.odd{
   background-color: red; /* Light gray for odd items */
 }
-/* #display-container:nth-child(even){
-  background-color: blue; /* Light gray for odd items */
-/* } */ 
  @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -142,14 +132,6 @@ form{
     opacity: 0; /* Start invisible */
   animation: fadeInUp 1s ease-out forwards; /* Adjust duration and easing as needed */
  }
-/* @keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-} */
  .appended-badges{ 
       background-repeat: no-repeat;
     background-size: 2rem 2rem;
@@ -165,185 +147,6 @@ form{
   opacity: 0; /* Start invisible */
   animation: fadeInUp 3s ease-out forwards; /* Apply the fadeIn animation */
 }
-
-/* Apply animation delays to each item */
-/* .appended-badges:nth-child(1) {
-  animation-delay: .6s; 
-}
-.appended-badges:nth-child(2) {
-  animation-delay: .8s; 
-}
-.appended-badges:nth-child(3) {
-  animation-delay: 1.0s; 
-}
-.appended-badges:nth-child(4) {
-  animation-delay: 1.2s; 
-}
-.appended-badges:nth-child(5) {
-  animation-delay: 1.4s; 
-}
-.appended-badges:nth-child(6) {
-  animation-delay: 1.6s; 
-}
-.appended-badges:nth-child(7) {
-  animation-delay: 1.8s; 
-}
-.appended-badges:nth-child(8) {
-  animation-delay: 2.0s; 
-}
-.appended-badges:nth-child(9) {
-  animation-delay: 2.2s; 
-}
-.appended-badges:nth-child(10) {
-  animation-delay: 2.4s; 
-}
-.appended-badges:nth-child(11) {
-  animation-delay: 2.6s; 
-}
-.appended-badges:nth-child(12) {
-  animation-delay: 2.8s; 
-}
-.appended-badges:nth-child(13) {
-  animation-delay: 3.0s; 
-}
-.appended-badges:nth-child(14) {
-  animation-delay: 3.2s; 
-}
-.appended-badges:nth-child(15) {
-  animation-delay: 3.4s; 
-}
-.appended-badges:nth-child(16) {
-  animation-delay: 3.6s; 
-}
-.appended-badges:nth-child(17) {
-  animation-delay: 3.8s; 
-}
-.appended-badges:nth-child(18) {
-  animation-delay: 4.0s; 
-}
-.appended-badges:nth-child(19) {
-  animation-delay: 4.2s; 
-}
-.appended-badges:nth-child(20) {
-  animation-delay: 4.4s; 
-}
-.appended-badges:nth-child(21) {
-  animation-delay: 4.6s; 
-}
-.appended-badges:nth-child(22) {
-  animation-delay: 4.8s; 
-}
-.appended-badges:nth-child(23) {
-  animation-delay: 5.0s; 
-}
-.appended-badges:nth-child(24) {
-  animation-delay: 5.2s; 
-}
-.appended-badges:nth-child(25) {
-  animation-delay: 5.4s; 
-}
-.appended-badges:nth-child(26) {
-  animation-delay: 5.6s; 
-}
-.appended-badges:nth-child(27) {
-  animation-delay: 5.8s; 
-}
-.appended-badges:nth-child(28) {
-  animation-delay: 6.0s; 
-}
-.appended-badges:nth-child(29) {
-  animation-delay: 6.2s; 
-}
-.appended-badges:nth-child(30) {
-  animation-delay: 6.4s; 
-}
-.appended-badges:nth-child(31) {
-  animation-delay: 6.6s; 
-}
-.appended-badges:nth-child(32) {
-  animation-delay: 6.8s; 
-}
-.appended-badges:nth-child(33) {
-  animation-delay: 7.0s; 
-}
-.appended-badges:nth-child(34) {
-  animation-delay: 7.2s; 
-}
-.appended-badges:nth-child(35) {
-  animation-delay: 7.4s; 
-}
-.appended-badges:nth-child(36) {
-  animation-delay: 7.6s; 
-}
-.appended-badges:nth-child(37) {
-  animation-delay: 7.8s; 
-}
-.appended-badges:nth-child(38) {
-  animation-delay: 8.0s; 
-}
-.appended-badges:nth-child(39) {
-  animation-delay: 8.2s; 
-}
-.appended-badges:nth-child(40) {
-  animation-delay: 8.4s; 
-}
-.appended-badges:nth-child(41) {
-  animation-delay: 8.6s; 
-}
-.appended-badges:nth-child(42) {
-  animation-delay: 8.8s; 
-}
-.appended-badges:nth-child(43) {
-  animation-delay: 9s; 
-}
-.appended-badges:nth-child(44) {
-  animation-delay: 9.2s; 
-}
-.appended-badges:nth-child(45) {
-  animation-delay: 9.4s; 
-}
-.appended-badges:nth-child(46) {
-  animation-delay: 9.6s; 
-}
-.appended-badges:nth-child(47) {
-  animation-delay: 9.8s; 
-}
-.appended-badges:nth-child(48) {
-  animation-delay: 10s; 
-}
-.appended-badges:nth-child(49) {
-  animation-delay: 10.2s; 
-}
-.appended-badges:nth-child(50) {
-  animation-delay: 10.4s; 
-}
-.appended-badges:nth-child(51) {
-  animation-delay: 10.6s; 
-}
-.appended-badges:nth-child(52) {
-  animation-delay: 10.8s; 
-}
-.appended-badges:nth-child(53) {
-  animation-delay: 11s; 
-}
-.appended-badges:nth-child(54) {
-  animation-delay: 11.2s; 
-}
-.appended-badges:nth-child(55) {
-  animation-delay: 11.4s; 
-}
-.appended-badges:nth-child(56) {
-  animation-delay: 11.6s; 
-}
-.appended-badges:nth-child(57) {
-  animation-delay: 11.8s; 
-}
-.appended-badges:nth-child(58) {
-  animation-delay: 12s; 
-} */
-
-
-
 
 input[type=checkbox] {
     display:none;

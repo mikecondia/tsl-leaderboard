@@ -4,7 +4,9 @@ const flagInput = document.querySelector('#country-select');
 
 const displayArea = document.querySelector('#display-container');
 const badgeContainer = document.querySelector('#badge-container')
-const form = document.querySelector('#form-container');
+const form= document.querySelector('#form-container');
+const overlay = document.getElementById('alertOverlay');
+ 
 // MEMBER DATA
 const formSubmissions =[];//Array Holding user data
 //SORTING FUNCTION
@@ -30,6 +32,26 @@ const formSubmissions =[];//Array Holding user data
 //FORM
 form.addEventListener('submit',function(e){
     e.preventDefault();
+   //        if (!form.checkValidity()) {
+   //    //   e.preventDefault(); // prevent submission
+   //      showAlert();
+   //    }
+   //  });
+
+    function showAlert() {
+      overlay.style.display = 'flex';
+
+      // Automatically hide after 5 seconds
+      setTimeout(() => {
+        overlay.classList.add('fade-out');
+        setTimeout(() => {
+          overlay.style.display = 'none';
+          overlay.classList.remove('fade-out');
+        }, 500); // match fade-out animation time
+      }, 5000);
+    }
+
+   
 
     const form = e.target 
     const checkboxes = document.querySelectorAll('input[name="thing"]:checked');
@@ -44,17 +66,17 @@ form.addEventListener('submit',function(e){
    }
    formSubmissions.push(tslMemberdata);//push data into array
    // console.log(tslMemberdata)
-   function sortByMostValues(arr, key) {
-  return arr.sort((a, b) => {
-    const aCount = Array.isArray(a[key]) ? a[key].length : 0;
-    const bCount = Array.isArray(b[key]) ? b[key].length : 0;
-    return bCount - aCount; // most to least
-  });
-}
+//    function sortByMostValues(arr, key) {
+//   return arr.sort((a, b) => {
+//     const aCount = Array.isArray(a[key]) ? a[key].length : 0;
+//     const bCount = Array.isArray(b[key]) ? b[key].length : 0;
+//     return bCount - aCount; // most to least
+//   });
+// }
 // //  Example:
 
-const sortedUsers = sortByMostValues(formSubmissions, 'badges');
-console.log(sortedUsers);
+// const sortedUsers = sortByMostValues(formSubmissions, 'badges');
+// console.log(sortedUsers);
 
 
  const nameInputValue = nameInput.value; 
@@ -266,6 +288,7 @@ console.log(sortedUsers);
 
          document.querySelector('#form-container').reset()
 });
+
 
 
 
