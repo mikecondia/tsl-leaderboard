@@ -273,6 +273,11 @@ form.addEventListener('submit',function(e){
 
 
        displayArea.appendChild(listItem); 
+         // Scroll to the newly added element smoothly
+      listItem.scrollIntoView({
+        behavior: 'smooth',
+        block: 'center'
+      });
 });
 
          document.querySelector('#form-container').reset()

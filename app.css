@@ -2,6 +2,9 @@
     background-color:#013123;
     color:white; 
     font-family:"Crimson+Pro";
+     margin: 0;
+  padding: 0;
+
 }
 .logo-container{
       display: flex;
@@ -78,6 +81,12 @@ form{
   ". e .";
 
 }
+  /* #display-container:nth-child(odd) {
+    background-color: red;
+  }
+  #display-container:nth-child(even) {
+    background-color: blue;
+  } */
 #checkbox-container{
     margin:1rem;
     margin-top:2rem;
@@ -122,7 +131,7 @@ form{
     font-weight: 400;
     /* display:block;  */
      font-size: 2rem;
-     margin-top: 1rem;
+     /* margin-top: 1rem; */
      word-spacing: 1rem;
    /* height: 50px;
    margin: 0 auto; */
@@ -132,6 +141,7 @@ form{
   align-items: center; 
     opacity: 0; /* Start invisible */
   animation: fadeInUp 1s ease-out forwards; /* Adjust duration and easing as needed */
+  background-color: #214a27
  }
  .appended-badges{ 
       background-repeat: no-repeat;
@@ -139,7 +149,9 @@ form{
     object-fit: contain;
     height: 2rem;
     width: 2rem;
+    margin-top: .3rem;
     margin-right:.3rem;
+    margin-bottom:.3rem;
     /* display:inline-block; */
     /* padding: 0 0 0 0px; */
     color: rgba(0, 0, 0, 0);
@@ -154,7 +166,7 @@ input[type=checkbox] {
 }
 
 
-/* BLACK CHECK MARK WITH TEDDY'S FACE */
+/* CHECK MARKS CLICKED OPACITY LOWERED*/
 #coin:checked + label,#agons:checked + label,#ancestry:checked + label, #angler:checked + label,#archery:checked + label,#art:checked + label, #astronomer:checked + label, #backyardchef:checked + label,#backyardfarmer:checked+label,#barbell:checked+label,#biography:checked+label,#citizenship:checked+label,#classics:checked+label,#communityservice:checked+label, #craftsman:checked+label,#easyrider:checked+label,#emergency:checked+label, #entreprenuership:checked+label, #fighter:checked+label,#fire:checked+label,#firstaid:checked+label,#frogman:checked+label, #gearhead:checked+label, #scholar:checked+label, #hacker:checked+label, #handyman:checked+label, #host:checked+label,#hunting:checked+label,#infosec:checked+label, #journaling:checked+label,#kissthechef:checked+label, #knot:checked+label, #letter:checked+label,#lock:checked+label,#lumberjack:checked+label,#microadventure:checked+label,#monk:checked+label,#ranger:checked+label,#music:checked+label,#orator:checked+label,#outdoorsman:checked+label,#family:checked+label,#penmanship:checked+label,#finance:checked+label,#polyglot:checked+label, #roughrider:checked+label,#rucking:checked + label, #sales:checked+label, #sartorialist:checked+label,#scout:checked+label,#sharpshooter:checked+label, #shaving:checked+label, #sheepdog:checked+label,#social:checked+label,#tracker:checked+label,#virtue:checked+label, #wilderness:checked+label {
     /* background-image: url('images/tsl_badges/black_dot.png'); */
     opacity:0.35;
