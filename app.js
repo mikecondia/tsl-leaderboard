@@ -89,9 +89,10 @@ form.addEventListener('submit',function(e){
      // Create delete button
   const deleteBtn = document.createElement("button");
   deleteBtn.textContent = "💀";
-  deleteBtn.style.marginLeft = "10px";
+  deleteBtn.style.marginLeft = "20px";
       deleteBtn.addEventListener("click", function() {
     newParagraph.remove();
+    listItem.remove();
   });
   newParagraph.appendChild(deleteBtn);
 
@@ -281,6 +282,9 @@ form.addEventListener('submit',function(e){
 
 
        displayArea.appendChild(listItem); 
+          deleteBtn.addEventListener("click", function() {
+    listItem.remove();
+  });
          // Scroll to the newly added element smoothly
       listItem.scrollIntoView({
         behavior: 'smooth',
