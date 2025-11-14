@@ -54,7 +54,7 @@ form.addEventListener('submit',function(e){
       badges: checkboxes
    }
    formSubmissions.push(tslMemberdata);//push data into array
-   // console.log(tslMemberdata)
+   console.log(tslMemberdata)
 //    function sortByMostValues(arr, key) {
 //   return arr.sort((a, b) => {
 //     const aCount = Array.isArray(a[key]) ? a[key].length : 0;
@@ -86,6 +86,14 @@ form.addEventListener('submit',function(e){
         newParagraph.textContent = combinedText;
         newParagraph.classList.add('appended-items')
          displayArea.appendChild(newParagraph);
+     // Create delete button
+  const deleteBtn = document.createElement("button");
+  deleteBtn.textContent = "💀";
+  deleteBtn.style.marginLeft = "10px";
+      deleteBtn.addEventListener("click", function() {
+    newParagraph.remove();
+  });
+  newParagraph.appendChild(deleteBtn);
 
     const checkedCheckboxes = document.querySelectorAll('input[type="checkbox"]:checked');
         checkedCheckboxes.forEach(checkbox => {
@@ -279,7 +287,6 @@ form.addEventListener('submit',function(e){
         block: 'center'
       });
 });
-
          document.querySelector('#form-container').reset()
 });
 
