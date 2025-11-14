@@ -4,7 +4,7 @@ const flagInput = document.querySelector('#country-select');
 
 const displayArea = document.querySelector('#display-container');
 const badgeContainer = document.querySelector('#badge-container');
-const form= document.querySelector('#form-container');
+const form = document.querySelector('#form-container');
 
  
 // MEMBER DATA
@@ -88,8 +88,10 @@ form.addEventListener('submit',function(e){
          displayArea.appendChild(newParagraph);
      // Create delete button
   const deleteBtn = document.createElement("button");
-  deleteBtn.textContent = "💀";
-  deleteBtn.style.marginLeft = "20px";
+  deleteBtn.textContent = "☠";
+  deleteBtn.classList.add('delete-button');
+//   deleteBtn.style.marginLeft = "20px";
+//   deleteBtn.style.fontSize = "2.5rem"
       deleteBtn.addEventListener("click", function() {
     newParagraph.remove();
     listItem.remove();
