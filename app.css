@@ -114,9 +114,7 @@ form{
     font-family: 'Crimson Pro';
     text-align: center;
  }  
-#display-container.odd{
-  background-color: red; /* Light gray for odd items */
-}
+
  @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -141,7 +139,6 @@ form{
   align-items: center; 
     opacity: 0; /* Start invisible */
   animation: fadeInUp 1s ease-out forwards; /* Adjust duration and easing as needed */
-  background-color: #214a27;
  }
  .appended-badges{ 
     background-repeat: no-repeat;

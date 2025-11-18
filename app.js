@@ -6,349 +6,170 @@ const displayArea = document.querySelector('#display-container');
 const badgeContainer = document.querySelector('#badge-container');
 const form = document.querySelector('#form-container');
 
- 
 // MEMBER DATA
-const formSubmissions =[];//Array Holding user data
-//SORTING FUNCTION
-// function sortByMostValues(arr, key) {
-//   return arr.sort((a, b) => {
-//     const aCount = Array.isArray(a[key]) ? a[key].length : 0;
-//     const bCount = Array.isArray(b[key]) ? b[key].length : 0;
-//     return bCount - aCount; // most to least
-//   });
-// }
-// // //  Example:
+const formSubmissions = []; // Stores all user objects
 
-// const sortedUsers = sortByMostValues(formSubmissions, 'badges');
-// console.log(sortedUsers);
-// Output:
+// ------------------------------
+// SORT + UPDATE DOM
+// ------------------------------
+function sortUsersAndUpdateDOM() {
+  // Sort users by number of badges (descending)
+  formSubmissions.sort((a, b) => b.badges.length - a.badges.length);
 
-// [
-//   { name: 'Charlie', hobbies: ['cycling', 'hiking', 'traveling', 'cooking'] },
-//   { name: 'Alice', hobbies: ['reading', 'running', 'music'] },
-//   { name: 'Bob', hobbies: ['gaming'] }
-// ]
+  // Clear the display area
+  displayArea.innerHTML = "";
 
-//FORM
-form.addEventListener('submit',function(e){
-    e.preventDefault();
-   //        if (!form.checkValidity()) {
-   //    //   e.preventDefault(); // prevent submission
-   //      showAlert();
-   //    }
-   //  });
-  
-  
-   
-   
+  // Re-append each user’s DOM element in new order
+  formSubmissions.forEach(user => {
+    displayArea.appendChild(user.domElement);
+  });
+}
 
-    const form = e.target 
-    const checkboxes = document.querySelectorAll('input[name="thing"]:checked');
-    checkboxes.forEach(checkbox=> {
-      formSubmissions.push(checkbox.checked)
-    }); 
-    const tslMemberdata = {
-      name: form.name.value,
-      classNumber: form.number.value,
-      country:form.country.value,
-      badges: checkboxes
-   }
-   formSubmissions.push(tslMemberdata);//push data into array
-   console.log(tslMemberdata)
-//    function sortByMostValues(arr, key) {
-//   return arr.sort((a, b) => {
-//     const aCount = Array.isArray(a[key]) ? a[key].length : 0;
-//     const bCount = Array.isArray(b[key]) ? b[key].length : 0;
-//     return bCount - aCount; // most to least
-//   });
-// }
-// //  Example:
+// ------------------------------
+// FORM SUBMISSION
+// ------------------------------
+form.addEventListener('submit', function (e) {
+  e.preventDefault();
+  const form = e.target;
 
-// const sortedUsers = sortByMostValues(formSubmissions, 'badges');
-// console.log(sortedUsers);
+  // Get checked checkboxes
+  const checkboxes = document.querySelectorAll('input[name="thing"]:checked');
+  const badgeIDs = Array.from(checkboxes).map(c => c.id); // store badge IDs
 
+  // ------------------------------
+  // CREATE DOM NODES FOR USER
+  // ------------------------------
+  const nameInputValue = nameInput.value;
+  const classInputValue = parseFloat(classInput.value);
+  const flagInputValue = flagInput.value;
 
- const nameInputValue = nameInput.value; 
-    const nameDiv = document.createElement('p');
-    nameDiv.textContent = nameInputValue;  
+  // MAIN USER ROW DOM ELEMENT
+  const newParagraph = document.createElement('div');
+  const combinedText = nameInputValue.toUpperCase() + ' ' + classInputValue + ' ' + flagInputValue;
+  newParagraph.textContent = combinedText;
+  newParagraph.classList.add('appended-items');
 
-    const classInputValue = classInput.value; 
-    let noZero = parseFloat(classInputValue); 
-    const classDiv = document.createElement('p');
-    classDiv.textContent = noZero; 
-   
-    const flagInputValue = flagInput.value;
-    const flagDiv = document.createElement('p');
-    flagDiv.textContent = flagInputValue; 
+  displayArea.appendChild(newParagraph);
 
-    const newParagraph = document.createElement('div');
-    const combinedText = nameInputValue.toUpperCase() + ' ' + noZero + ' ' + flagInputValue;
-        newParagraph.textContent = combinedText;
-        newParagraph.classList.add('appended-items')
-         displayArea.appendChild(newParagraph);
-     // Create delete button
+  // DELETE BUTTON
   const deleteBtn = document.createElement("button");
   deleteBtn.textContent = "☠";
   deleteBtn.classList.add('delete-button');
-//   deleteBtn.style.marginLeft = "100px";
-//   deleteBtn.style.fontSize = "2.5rem"
-      deleteBtn.addEventListener("click", function() {
-    newParagraph.remove();
-    listItem.remove();
-  });
   newParagraph.appendChild(deleteBtn);
 
-    const checkedCheckboxes = document.querySelectorAll('input[type="checkbox"]:checked');
-        checkedCheckboxes.forEach(checkbox => {
+  // ------------------------------
+  // CREATE USER DATA OBJECT
+  // ------------------------------
+  const tslMemberdata = {
+    name: nameInputValue,
+    classNumber: classInputValue,
+    country: flagInputValue,
+    badges: badgeIDs,
+    domElement: newParagraph // store DOM reference for reordering
+  };
 
-            const listItem = document.createElement('div');
-            listItem.classList.add('appended-badges');
-             listItem.textContent = checkbox.id;
-             if (listItem.textContent === "coin"){
-                listItem.style.backgroundImage = 'url("images/tsl_badges/coin-100x100.png")';
-             }
-              if (listItem.textContent === "ancestry"){
-                listItem.style.backgroundImage = 'url("images/tsl_badges/ancestry.png")';
-             }
-              if (listItem.textContent === "angler"){
-                listItem.style.backgroundImage = 'url("images/tsl_badges/Angler-Badge.png")';
-             }
-             if (listItem.textContent === "archery"){
-                listItem.style.backgroundImage = 'url("images/tsl_badges/Archery-Badge.png")';
-             }
-            if (listItem.textContent === "art"){
-                listItem.style.backgroundImage = 'url("images/tsl_badges/Artist-Badge.png")';
-             }
-             if (listItem.textContent === "astronomer"){
-                listItem.style.backgroundImage = 'url("images/tsl_badges/Astronomer-Badge.png")';
-             }
-             if (listItem.textContent === "backyardchef"){
-                listItem.style.backgroundImage = 'url("images/tsl_badges/Backyard-Chef-Badge.png")';
-             }
-             if (listItem.textContent === "backyardfarmer"){
-                listItem.style.backgroundImage = 'url("images/tsl_badges/Backyard-Farmer-Badge.png")';
-             }
-             if (listItem.textContent === "barbell"){
-                listItem.style.backgroundImage = 'url("images/tsl_badges/Barbell-Badge.png")';
-             }
-             if (listItem.textContent === "biography"){
-                listItem.style.backgroundImage = 'url("images/tsl_badges/Biography-Badge-1.png")';
-             }
-              if (listItem.textContent === "citizenship"){
-                listItem.style.backgroundImage = 'url("images/tsl_badges/Citizenship-Badge.png")';
-             }
-            if (listItem.textContent === "classics"){
-                listItem.style.backgroundImage = 'url("images/tsl_badges/Classics-Badge.png")';
-             }
-            if (listItem.textContent === "communityservice"){
-                listItem.style.backgroundImage = 'url("images/tsl_badges/Community-Service-Badge.png")';
-             }
-            if (listItem.textContent === "craftsman"){
-                listItem.style.backgroundImage = 'url("images/tsl_badges/Craftsman-Badge.png")';
-             }
-            if (listItem.textContent === "easyrider"){
-                listItem.style.backgroundImage = 'url("images/tsl_badges/Easyrider-Badge.png")';
-             }
-            if (listItem.textContent === "emergency"){
-                listItem.style.backgroundImage = 'url("images/tsl_badges/Emergency-Prepping-Badge.png")';
-             }
-            if (listItem.textContent === "entreprenuership"){
-                listItem.style.backgroundImage = 'url("images/tsl_badges/Entrepreneurship-Badge.png")';
-             }
-               if (listItem.textContent === "fighter"){
-                listItem.style.backgroundImage = 'url("images/tsl_badges/Fighter-Badge.png")';
-             }
-            if (listItem.textContent === "fire"){
-                listItem.style.backgroundImage = 'url("images/tsl_badges/Firebuilding-Badge.png")';
-             }
-            if (listItem.textContent === "firstaid"){
-                listItem.style.backgroundImage = 'url("images/tsl_badges/First-Aid-Badge.png")';
-             }
-               if (listItem.textContent === "frogman"){
-                listItem.style.backgroundImage = 'url("images/tsl_badges/Frogman-Badge.png")';
-             }
-               if (listItem.textContent === "gearhead"){
-                listItem.style.backgroundImage = 'url("images/tsl_badges/Automotive-Maintenance-Badge.png")';
-             }
-               if (listItem.textContent === "scholar"){
-                listItem.style.backgroundImage = 'url("images/tsl_badges/Gentleman-Scholar-Badge.png")';
-             }
-               if (listItem.textContent === "hacker"){
-                listItem.style.backgroundImage = 'url("images/tsl_badges/Hacker-Badge.png")';
-             }
-                if (listItem.textContent === "handyman"){
-                listItem.style.backgroundImage = 'url("images/tsl_badges/Handyman-Badge.png")';
-             }
-               if (listItem.textContent === "host"){
-                listItem.style.backgroundImage = 'url("images/tsl_badges/Host-Badge.png")';
-             }
-             if (listItem.textContent === "hunting"){
-                listItem.style.backgroundImage = 'url("images/tsl_badges/Hunter-Badge.png")';
-             }
-            if (listItem.textContent === "infosec"){
-                listItem.style.backgroundImage = 'url("images/tsl_badges/Infosecurity-Badge.png")';
-             }
-            if (listItem.textContent === "infosec"){
-                listItem.style.backgroundImage = 'url("images/tsl_badges/Infosecurity-Badge.png")';
-             }
-             if (listItem.textContent === "journaling"){
-                listItem.style.backgroundImage = 'url("images/tsl_badges/Journaling-Badge.png")';
-             }
-            if (listItem.textContent === "kissthechef"){
-                listItem.style.backgroundImage = 'url("images/tsl_badges/Kiss-the-Chef-Badge.png")';
-             }
-              if (listItem.textContent === "knot"){
-                listItem.style.backgroundImage = 'url("images/tsl_badges/Knotmanship-Badge-1.png")';
-             }
-              if (listItem.textContent === "letter"){
-                listItem.style.backgroundImage = 'url("images/tsl_badges/Letter-Writing-Badge.png")';
-             }
-             if (listItem.textContent === "lumberjack"){
-               listItem.style.backgroundImage = 'url("images/tsl_badges/Lumberjack-Badge.png")'; 
-             }
-              if (listItem.textContent === "lock"){
-                listItem.style.backgroundImage = 'url("images/tsl_badges/Lock-Picking-Badge.png")';
-             }
-              if (listItem.textContent === "lumbrjack"){
-                listItem.style.backgroundImage = 'url("images/tsl_badges/Lumberjack-Badge.png")';
-             }
-               if (listItem.textContent === "microadventure"){
-                listItem.style.backgroundImage = 'url("images/tsl_badges/Microadventure-Badge.png")';
-             }
-               if (listItem.textContent === "monk"){
-                listItem.style.backgroundImage = 'url("images/tsl_badges/Monk-Badge-Web.png")';
-             }
-               if (listItem.textContent === "ranger"){
-                listItem.style.backgroundImage = 'url("images/tsl_badges/Mountain-Ranger-Badge.png")';
-             } 
-               if (listItem.textContent === "music"){
-                listItem.style.backgroundImage = 'url("images/tsl_badges/Musician-Badge.png")';
-             } 
-               if (listItem.textContent === "orator"){
-                listItem.style.backgroundImage = 'url("images/tsl_badges/Orator-Badge.png")';
-             } 
-              if (listItem.textContent === "outdoorsman"){
-                listItem.style.backgroundImage = 'url("images/tsl_badges/All-Around-Outdoorsman-Badge.png")';
-             } 
-               if (listItem.textContent === "family"){
-                listItem.style.backgroundImage = 'url("images/tsl_badges/Paterfamilia-Badge.png")';
-             } 
-              if (listItem.textContent === "penmanship"){
-                listItem.style.backgroundImage = 'url("images/tsl_badges/Penmanship-Badge.png")';
-             } 
-               if (listItem.textContent === "finance"){
-                listItem.style.backgroundImage = 'url("images/tsl_badges/Personal-Finance-Badge.png")';
-             } 
-                if (listItem.textContent === "polyglot"){
-                listItem.style.backgroundImage = 'url("images/tsl_badges/Foreign-Language-Badge-Web.png")';
-             } 
-                if (listItem.textContent === "roughrider"){
-                listItem.style.backgroundImage = 'url("images/tsl_badges/Roughrider-Badge.png")';
-             } 
-                 if (listItem.textContent === "rucking"){
-                listItem.style.backgroundImage = 'url("images/tsl_badges/Ruck-Badge.png")';
-             } 
-                  if (listItem.textContent === "sales"){
-                listItem.style.backgroundImage = 'url("images/tsl_badges/Salesmanship-Badge.png")';
-             } 
-                 if (listItem.textContent === "sartorialist"){
-                listItem.style.backgroundImage = 'url("images/tsl_badges/Sartorialist-Badge.png")';
-             } 
-                 if (listItem.textContent === "scout"){
-                listItem.style.backgroundImage = 'url("images/tsl_badges/Scout-Badge.png")';
-             } 
-                if (listItem.textContent === "sharpshooter"){
-                listItem.style.backgroundImage = 'url("images/tsl_badges/Sharpshooter-Badge.png")';
-             } 
-               if (listItem.textContent === "shaving"){
-                listItem.style.backgroundImage = 'url("images/tsl_badges/Shaving-Badge.png")';
-             } 
-               if (listItem.textContent === "sheepdog"){
-                listItem.style.backgroundImage = 'url("images/tsl_badges/Sheepdog-Badge.png")';
-             } 
-              if (listItem.textContent === "social"){
-                listItem.style.backgroundImage = 'url("images/tsl_badges/Social-Dynamo-Badge.png")';
-             } 
-               if (listItem.textContent === "tracker"){
-                listItem.style.backgroundImage = 'url("images/tsl_badges/Tracking-Badge.png")';
-             } 
-               if (listItem.textContent === "virtue"){
-                listItem.style.backgroundImage = 'url("images/tsl_badges/Virtue-Badge.png")';
-             } 
-               if (listItem.textContent === "wilderness"){
-                listItem.style.backgroundImage = 'url("images/tsl_badges/Wilderness-Survival-Badge.png")';
-             } 
-               if (listItem.textContent === "agons"){
-                listItem.style.backgroundImage = 'url("images/tsl_badges/agons.png")';
-             }
+  // Add to storage array
+  formSubmissions.push(tslMemberdata);
 
+  // ------------------------------
+  // BADGE RENDERING (unchanged from your version)
+  // ------------------------------
+  badgeIDs.forEach(id => {
+    const listItem = document.createElement('div');
+    listItem.classList.add('appended-badges');
+    listItem.textContent = id;
 
-       displayArea.appendChild(listItem); 
-          deleteBtn.addEventListener("click", function() {
-    listItem.remove();
+    // IMAGE LOGIC
+    const badgeImages = {
+      coin: "coin-100x100.png",
+      ancestry: "ancestry.png",
+      angler: "Angler-Badge.png",
+      archery: "Archery-Badge.png",
+      art: "Artist-Badge.png",
+      astronomer: "Astronomer-Badge.png",
+      backyardchef: "Backyard-Chef-Badge.png",
+      backyardfarmer: "Backyard-Farmer-Badge.png",
+      barbell: "Barbell-Badge.png",
+      biography: "Biography-Badge-1.png",
+      citizenship: "Citizenship-Badge.png",
+      classics: "Classics-Badge.png",
+      communityservice: "Community-Service-Badge.png",
+      craftsman: "Craftsman-Badge.png",
+      easyrider: "Easyrider-Badge.png",
+      emergency: "Emergency-Prepping-Badge.png",
+      entreprenuership: "Entrepreneurship-Badge.png",
+      fighter: "Fighter-Badge.png",
+      fire: "Firebuilding-Badge.png",
+      firstaid: "First-Aid-Badge.png",
+      frogman: "Frogman-Badge.png",
+      gearhead: "Automotive-Maintenance-Badge.png",
+      scholar: "Gentleman-Scholar-Badge.png",
+      hacker: "Hacker-Badge.png",
+      handyman: "Handyman-Badge.png",
+      host: "Host-Badge.png",
+      hunting: "Hunter-Badge.png",
+      infosec: "Infosecurity-Badge.png",
+      journaling: "Journaling-Badge.png",
+      kissthechef: "Kiss-the-Chef-Badge.png",
+      knot: "Knotmanship-Badge-1.png",
+      letter:"Letter-Writing-Badge.png",
+      lumberjack: "Lumberjack-Badge.png",
+      lock: "Lock-Picking-Badge.png",
+      microadventure: "Microadventure-Badge.png",
+      monk: "Monk-Badge-Web.png",
+      ranger: "Mountain-Ranger-Badge.png",
+      music: "Musician-Badge.png",
+      orator: "Orator-Badge.png",
+      outdoorsman: "All-Around-Outdoorsman-Badge.png",
+      family: "Paterfamilia-Badge.png",
+      penmanship: "Penmanship-Badge.png",
+      finance: "Personal-Finance-Badge.png",
+      polyglot: "Foreign-Language-Badge-Web.png",
+      roughrider: "Roughrider-Badge.png",
+      rucking: "Ruck-Badge.png",
+      sales: "Salesmanship-Badge.png",
+      sartorialist: "Sartorialist-Badge.png",
+      scout: "Scout-Badge.png",
+      sharpshooter: "Sharpshooter-Badge.png",
+      shaving: "Shaving-Badge.png",
+      sheepdog: "Sheepdog-Badge.png",
+      social: "Social-Dynamo-Badge.png",
+      tracker: "Tracking-Badge.png",
+      virtue: "Virtue-Badge.png",
+      wilderness: "Wilderness-Survival-Badge.png",
+      agons: "agons.png"
+    };
+
+    if (badgeImages[id]) {
+      listItem.style.backgroundImage = `url("images/tsl_badges/${badgeImages[id]}")`;
+    }
+
+    newParagraph.appendChild(listItem);
+
+    listItem.scrollIntoView({
+      behavior: 'smooth',
+      block: 'center'
+    });
   });
-         // Scroll to the newly added element smoothly
-      listItem.scrollIntoView({
-        behavior: 'smooth',
-        block: 'center'
-      });
+
+  // ------------------------------
+  // DELETE BUTTON REMOVE FUNCTION
+  // ------------------------------
+  deleteBtn.addEventListener("click", function () {
+    newParagraph.remove();
+
+    // remove from data array too
+    const index = formSubmissions.indexOf(tslMemberdata);
+    if (index > -1) formSubmissions.splice(index, 1);
+
+    sortUsersAndUpdateDOM();
+  });
+
+  // ------------------------------
+  // SORT USERS AFTER ADDING
+  // ------------------------------
+  sortUsersAndUpdateDOM();
+
+  // Reset form
+  document.querySelector('#form-container').reset();
 });
-         document.querySelector('#form-container').reset()
-});
-
-
-
-
-
-
-// Let’s say your HTML looks like this:
-
-// <form id="userForm">
-//   <input type="text" id="name" placeholder="Name" required />
-//   <input type="text" id="hobbies" placeholder="Comma-separated hobbies" required />
-//   <button type="submit">Add User</button>
-// </form>
-
-// <ul id="userList"></ul>
-// 💻 JavaScript
-
-// const users = [];
-
-// const form = document.getElementById('userForm');
-// const list = document.getElementById('userList');
-
-// function renderUsers() {
-//   // Sort by number of hobbies
-//   const sorted = sortByMostValues(users, 'hobbies');
-
-//   // Clear and re-render
-//   list.innerHTML = '';
-//   sorted.forEach(user => {
-//     const li = document.createElement('li');
-//     li.textContent = `${user.name} (${user.hobbies.length} hobbies)`;
-//     list.appendChild(li);
-//   });
-// }
-
-// form.addEventListener('submit', e => {
-//   e.preventDefault();
-
-//   const name = document.getElementById('name').value.trim();
-//   const hobbiesInput = document.getElementById('hobbies').value.trim();
-
-//   if (name && hobbiesInput) {
-//     const hobbies = hobbiesInput.split(',').map(h => h.trim()).filter(Boolean);
-//     users.push({ name, hobbies });
-//     renderUsers();
-//     form.reset();
-//   }
-// });
-
-// // Utility sort function
-// function sortByMostValues(arr, key) {
-//   return arr.sort((a, b) => {
-//     const aCount = Array.isArray(a[key]) ? a[key].length : 0;
-//     const bCount = Array.isArray(b[key]) ? b[key].length : 0;
-//     return bCount - aCount;
-//   });
-// }
