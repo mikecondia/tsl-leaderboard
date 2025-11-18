@@ -90,7 +90,7 @@ form.addEventListener('submit',function(e){
   const deleteBtn = document.createElement("button");
   deleteBtn.textContent = "☠";
   deleteBtn.classList.add('delete-button');
-//   deleteBtn.style.marginLeft = "20px";
+//   deleteBtn.style.marginLeft = "100px";
 //   deleteBtn.style.fontSize = "2.5rem"
       deleteBtn.addEventListener("click", function() {
     newParagraph.remove();
